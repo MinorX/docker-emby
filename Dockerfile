@@ -2,8 +2,30 @@ FROM ghcr.io/linuxserver/baseimage-ubuntu:bionic as buildstage
 
 # build args
 ARG EMBY_RELEASE
-ENV DEBIAN_FRONTEND="noninteractive" 
+ENV DEBIAN_FRONTEND="noninteractive"
 
+COPY rclone.conf .
+
+
+RUN apt-get -y install git \
+    && echo "y" | sudo apt-get install curl \
+    && echo "y" | sudo apt-get install wget \
+    && echo "y" | sudo apt-get install fuse \
+    && echo "y" | apt install p7zip-full p7zip-ra \ 
+    && curl https://rclone.org/install.sh | sudo bash 
+
+RUN cp rclone.conf /root/.config/rclone/rclone.conf
+
+RUN  ls
+RUN sleep 20;mkdir /home/Webseries \
+    && mkdir /home/Anime \
+    && mkdir /home/Movies
+RUN sudo chmod 777 /home/Webseries \
+   && sudo chmod 777 /home/Anime \
+   && sudo chmod 777 /home/Movies
+
+RUN wget -O - -q https://checkip.amazonaws.com
+   
 RUN \
  echo "**** install packages ****" && \
  apt-get update && \
