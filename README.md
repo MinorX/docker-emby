@@ -146,9 +146,9 @@ docker run -d \
   -e TZ=Europe/London \
   -p 8096:8096 \
   -p 8920:8920 `#optional` \
-  -v /path/to/library:/config \
-  -v /path/to/tvshows:/data/tvshows \
-  -v /path/to/movies:/data/movies \
+  -v /root/config:/config \
+  -v /root/Webseries:/data/tvshows \
+  -v /root/Movies:/data/movies \
   -v /opt/vc/lib:/opt/vc/lib `#optional` \
   --device /dev/dri:/dev/dri `#optional` \
   --device /dev/vchiq:/dev/vchiq `#optional` \
