@@ -147,16 +147,10 @@ docker run -d \
   -p 8096:8096 \
   -p 8920:8920 `#optional` \
   -v /root/config:/config \
-  -v /root/Webseries:/data/tvshows \
-  -v /root/Movies:/data/movies \
-  -v /opt/vc/lib:/opt/vc/lib `#optional` \
-  --device /dev/dri:/dev/dri `#optional` \
-  --device /dev/vchiq:/dev/vchiq `#optional` \
-  --device /dev/video10:/dev/video10 `#optional` \
-  --device /dev/video11:/dev/video11 `#optional` \
-  --device /dev/video12:/dev/video12 `#optional` \
+  -v /root/Webseries:/root/tvshows \
+  -v /root/Movies:/root/movies \
   --restart unless-stopped \
-  lscr.io/linuxserver/emby:latest
+  emby-1
 ```
 
 ## Parameters
