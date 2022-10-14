@@ -147,8 +147,8 @@ docker run -d \
   -p 8096:8096 \
   -p 8920:8920 `#optional` \
   -v /root/config:/config \
-  -v /root/Webseries:/root/tvshows \
-  -v /root/Movies:/root/movies \
+  -v /root/Webseries:/tvshows \
+  -v /root/Movies:/movies \
   --restart unless-stopped \
   emby-1
 ```
